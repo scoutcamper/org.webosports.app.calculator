@@ -28,7 +28,7 @@ enyo.kind({
 			fit: true,
 			defaultKind: enyo.kind({
 				kind: "FittableColumns",
-				style: "height: 19%; margin: 0.5%;",
+				style: "height: 15.5%; margin: 0.5%;",
 				defaultKind: enyo.kind({
 					kind: "onyx.Button",
 					classes: "onyx-toolbar",
@@ -38,12 +38,19 @@ enyo.kind({
 			}),
 			components:[
 				{components:[
-					{style: "visibility: hidden;"},
-					{content: "sqrt("},
+					/**{style: "visibility: hidden;"},*/
+    					{content: "Math.sqrt("},		
 					{content: "("},
 					{content: ")"},
 					{content: "C", style: "margin-right: 0;", ontap: "cancelTapped"},
 				]},
+ {components:[
+                                        {content: "Math.ln("},
+                                        {content: "Math.log("},
+                                        {content: "Math.pow("},
+                                        {content: ","},
+                                ]},
+
 				{components:[
 					{content: "7", classes: "number-button"},
 					{content: "8", classes: "number-button"},
