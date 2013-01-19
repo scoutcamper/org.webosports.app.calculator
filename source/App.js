@@ -39,6 +39,7 @@ enyo.kind({
 			components:[
 				{components:[
 					{style: "visibility: hidden;"},
+					{content: "sqrt("},
 					{content: "("},
 					{content: ")"},
 					{content: "C", style: "margin-right: 0;", ontap: "cancelTapped"},
