@@ -39,16 +39,16 @@ enyo.kind({
 			components:[
 				{components:[
 					/**{style: "visibility: hidden;"},*/
-    					{content: "Math.sqrt("},		
+    					{content: "Square Root", ontap: "sqrtTapped"},		
 					{content: "("},
 					{content: ")"},
 					{content: "C", style: "margin-right: 0;", ontap: "cancelTapped"},
 				]},
  {components:[
-                                        {content: "Math.ln("},
-                                        {content: "Math.log("},
-                                        {content: "Math.pow("},
-                                        {content: ","},
+                                        {content: "ln", ontap: "lnTapped"},
+                                        {content: "log", ontap: "logTapped"},
+                                        {content: "^2"},
+                                        {content: ""},
                                 ]},
 
 				{components:[
@@ -83,10 +83,13 @@ enyo.kind({
 	keyTapped: function(inSender, inEvent) {
 		var formula = this.$.Formula;	
 		formula.setContent(formula.getContent() + inSender.getContent());
+		
 	},
 	equalsTapped: function() {
 		try {
-			var result = eval(this.$.Formula.getContent());
+			var formula = this.$.Formula;
+			formula2.setContent(formula.replace('sqrt', 'Math.sqrt'));
+			var result = eval(formula2.getContent());
 		}
 		catch(err) {
 			result = "Invalid Input";
@@ -96,6 +99,18 @@ enyo.kind({
 	cancelTapped: function() {
 		this.$.Result.setContent("");
 		this.$.Formula.setContent("");
+	},
+	sqrtTapped: function() {
+		this.$.Result.setContent("");
+		this.$.Formula.setContent("sqrt(");
+	},
+	lnTapped: function() {
+		this.$.Result.setContent("");
+		this.$.Formula.setContent("ln(");
+	},
+	logTapped: function() {
+		this.$.Result.setContent("");
+		this.$.Formula.setContent("log(");
 	},
 	backspaceTapped: function() {
 		var formula = this.$.Formula;
